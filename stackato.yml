@@ -10,10 +10,10 @@ services:
   world-data: filesystem
 hooks:
   pre-staging:
-    - wget --quiet https://s3.amazonaws.com/Minecraft.Download/versions/1.6.2/minecraft_server.1.6.2.jar
+    - wget --quiet https://s3.amazonaws.com/Minecraft.Download/versions/1.7.2/minecraft_server.1.7.2.jar
   pre-running:
     # Move the minecraft world to the Fileystem for storage
     - mkdir -p $STACKATO_FILESYSTEM/world
     - ln -s $STACKATO_FILESYSTEM/world world
     # run bukkit with harbor
-    - nohup java -Xms1G -Xmx1G -jar minecraft_server.1.6.2.jar -p $STACKATO_HARBOR nogui &
+    - nohup java -Xms1G -Xmx1G -jar minecraft_server.1.7.2.jar -p $STACKATO_HARBOR nogui &
